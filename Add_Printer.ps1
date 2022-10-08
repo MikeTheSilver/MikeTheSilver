@@ -4,8 +4,9 @@ Set-Variable -Name "pc" "$env:computername"
 Set-Variable -Name "printer" "printer-name"
 
 [System.Windows.MessageBox]::Show("Click OK to connect with printer:)","Please Wait","OK") | out-null
+# Line below will find and install printer from the server, remember to set there correct printer name
+rundll32 printui.dll,PrintUIEntry /ga /in /c\\'Get-Variable -Name "pc"' /n\\print-server\printer-name             
 
-rundll32 printui.dll,PrintUIEntry /ga /in /c\\'Get-Variable -Name "pc"' /n\\print-server\printer-name              #Here u can't use variable u have to enter full printer name
 
 Start-Sleep -s 20
 Get-Printer -Name "\\print-server\printer-name" | out-null
