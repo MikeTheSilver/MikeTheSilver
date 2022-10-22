@@ -1,3 +1,13 @@
+<#
+.Synopsis
+   This scripts adds printer form your prin server
+
+.DESCRIPTION
+   It will connect with your print server, download driver and information about printer from there and will also add this printer
+
+.Requirements
+    Installed printer server funciton on your Windows Server, also you need to have setup printer there and add driver to it
+#>
 Add-Type -AssemblyName PresentationCore,PresentationFramework
 
 Set-Variable -Name "pc" "$env:computername"
@@ -9,6 +19,7 @@ rundll32 printui.dll,PrintUIEntry /ga /in /c\\'Get-Variable -Name "pc"' /n\\prin
 
 
 Start-Sleep -s 20
+#remember to set there correct printer name
 Get-Printer -Name "\\print-server\printer-name" | out-null
 
 if($error[0])

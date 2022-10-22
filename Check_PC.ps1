@@ -1,3 +1,16 @@
+<#
+.Synopsis
+   Easy script for checking pc parameters
+
+.DESCRIPTION
+   With this script you can check following:
+        1. Quick overwiew of CPU and Motherboard name, RAM memory and OS version
+        2. Overwiew of network configuration
+        3. List of installed apps
+        4. List of partitions with usage, and totall RAM memory
+        5. Checks what printers you have 
+#>
+
 function PC_Hardware()
 {
     Get-ComputerInfo | Select  BiosManufacturer, CsDNSHostName, OsTotalVisibleMemorySize, CsProcessors, OsVersion | Format-List
@@ -81,14 +94,14 @@ do
         $decision = $Host.UI.PromptForChoice($title, $question, $choices,1)
         if($decision -eq 0)
         {
-            $path = Read-Host -prompt "Please write path"
+            $path = Read-Host -prompt "Please write path to file"
             try
             {
-                Software_Installed | Out-File -FilePath "C:\ps\test"
+                Software_Installed | Out-File -FilePath $path
             }
             catch
             {
-                Write-Host "Error! The path which you provided is wrong"
+                Write-Host "Error! The path which you provided is wrong or you have entered incorect filename details:"  $Error[0].Exception.Message
             }
         }
         else
