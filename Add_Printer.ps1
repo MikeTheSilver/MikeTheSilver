@@ -1,6 +1,6 @@
 <#
 .Synopsis
-   This scripts adds printer form your prin server
+   This scripts adds printer form your print server
 
 .DESCRIPTION
    It will connect with your print server, download driver and information about printer from there and will also add this printer
