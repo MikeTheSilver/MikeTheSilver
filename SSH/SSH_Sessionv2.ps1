@@ -66,6 +66,7 @@ do {
     }
 
     else {
+        Write-Host "`n"
         $file_name = Get-filename $selected_file
         $file_ouput = List-file $file_name
         do {
@@ -74,9 +75,11 @@ do {
             if ([int]$selected_server -gt $filearrlen -or [int]$selected_server -lt 0) {
                 Write-Output "Provided number is out of range please select correct number... "
                 $server_is_ok = $false
+                $file_is_ok = $false
             }
             elseif ([int]$selected_server -eq 0) {
                 $server_is_ok = $true
+                $file_is_ok = $false
             }
             else {
                 $sessionip = $file_ouput.ip[$selected_server -1]
@@ -88,6 +91,7 @@ do {
         while($server_is_ok -eq $false)
         
         $number = 1
+        Write-Host "`n"
         foreach ($file in $array_dir) {
             $output = "$number  $($file.Name)"
             Write-Host $output
