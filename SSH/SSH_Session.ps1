@@ -10,7 +10,7 @@
    also do not forget to check how structure of the csv should look
 
 .Requirements
-    Prepared csv file inside C:\Powershell\data.csv (or in any other destination just remember to change it inside script)
+    Prepared csv file inside C:\Powershell\data.csv (or in any other destination just remember to change it in script)
 
 #>
 function Get-content-from-file {
@@ -35,10 +35,6 @@ do{
     $selected = Read-Host("Select number of session")
     $arrlen = $array.Count
     if ([int]$selected -gt $arrlen -or [int]$selected -lt 1) {
-        echo $arrlen
-        echo $arrlen.gettype()
-        echo $selected
-        echo $selected.GetType()
         Write-Output "Provided number is out of range please select correct number... "
         $numberisok = $false
         Get-content-from-file
@@ -47,7 +43,6 @@ do{
     else {
         $file = Import-Csv 'C:\Powershell\data.csv'
         $array = @()
-        $number = 1
         foreach ($line in $file) {
             $array += @($line)
         }

@@ -7,4 +7,5 @@ Versions of the repository:
     1.0 - added Check_PC.ps1
     1.0 - added Add_Printer.ps1
     1.1 - added SSH_Session.ps1
+    1.2 - added SSH_Sessionv2.ps1
     
