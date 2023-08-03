@@ -68,7 +68,7 @@ do {
     else {
         Write-Host "`n"
         $file_name = Get-filename $selected_file
-        $file_ouput = List-file $file_name
+        $file_ouput = @(List-file $file_name)
         do {
             $selected_server = Read-Host("Select number of ssh connection")
             $filearrlen = $file_ouput.Count
@@ -82,10 +82,18 @@ do {
                 $file_is_ok = $false
             }
             else {
-                $sessionip = $file_ouput.ip[$selected_server -1]
-                $sessionuser = $file_ouput.user[$selected_server -1]
-                $server_is_ok = $true
-                $file_is_ok = $true
+                if ($filearrlen -eq 1){
+                    $sessionip = $file_ouput.ip
+                    $sessionuser = $file_ouput.user
+                    $server_is_ok = $true
+                    $file_is_ok = $true
+                }
+                else {
+                    $sessionip = $file_ouput.ip[$selected_server -1]
+                    $sessionuser = $file_ouput.user[$selected_server -1]
+                    $server_is_ok = $true
+                    $file_is_ok = $true
+                }
             }
         }
         while($server_is_ok -eq $false)

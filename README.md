@@ -9,4 +9,4 @@ Versions of the repository:
     1.1 - added SSH_Session.ps1
     1.2 - added SSH_Sessionv2.ps1 - initial version
     1.3 - updated SSH_Sessionv2.ps1 - added empty lines and fixed loops values
-    
+    1.4 - updated SSH_Sessionv2.ps1 - changed variable to hashtable (needed to handle single entry csv file)
