@@ -63,6 +63,13 @@ do {
     if ($selected_file -gt $dirarrlen -or $selected_file -lt 1) {
         Write-Output "Provided number is out of range please select correct number... "
         $file_is_ok = $false
+        $number = 1
+        Write-Host "`n"
+        foreach ($file in $array_dir) {
+            $output = "$number  $($file.Name)"
+            Write-Host $output
+            $number += 1
+        }
     }
 
     else {
@@ -97,14 +104,6 @@ do {
             }
         }
         while($server_is_ok -eq $false)
-        
-        $number = 1
-        Write-Host "`n"
-        foreach ($file in $array_dir) {
-            $output = "$number  $($file.Name)"
-            Write-Host $output
-            $number += 1
-        }
     }
 }
 while ($file_is_ok -eq $false)
