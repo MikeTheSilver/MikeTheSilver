@@ -11,3 +11,5 @@ Versions of the repository:
     1.3 - updated SSH_Sessionv2.ps1 - added empty lines and fixed loops values
     1.4 - updated SSH_Sessionv2.ps1 - changed variable to hashtable (needed to handle single entry csv file)
     1.5 - updated SSH_Sessionv2.ps1 - moved loop for listing files in csv directory
+    1.6 - updated SSH_Session - added port handling
+    1.6 - updated SSH_Sessionv2 - added port handling

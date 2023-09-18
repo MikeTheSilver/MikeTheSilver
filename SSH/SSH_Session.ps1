@@ -48,13 +48,14 @@ do{
         }
         $sessionip = $array.ip[$selected -1]
         $sessionuser = $array.user[$selected -1]
+        $sessionport = $array.port[$selected -1]
         $numberisok = $true
     }
 }
 while ($numberisok -eq $false)
 
 try {
-    ssh $sessionuser@$sessionip
+    ssh $sessionuser@$sessionip -p $sessionport
 }
 catch {
     Write-Output "SSH connection failed something is wrong with connection params or with the server"

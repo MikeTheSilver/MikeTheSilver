@@ -92,12 +92,14 @@ do {
                 if ($filearrlen -eq 1){
                     $sessionip = $file_ouput.ip
                     $sessionuser = $file_ouput.user
+                    $sessionport = $file_ouput.port
                     $server_is_ok = $true
                     $file_is_ok = $true
                 }
                 else {
                     $sessionip = $file_ouput.ip[$selected_server -1]
                     $sessionuser = $file_ouput.user[$selected_server -1]
+                    $sessionport = $file_ouput.port[$selected_server -1]
                     $server_is_ok = $true
                     $file_is_ok = $true
                 }
@@ -110,7 +112,7 @@ while ($file_is_ok -eq $false)
 
 # Connect
 try {
-    ssh $sessionuser@$sessionip
+    ssh $sessionuser@$sessionip -p $sessionport
 }
 catch {
     Write-Output "SSH connection failed something is wrong with connection params or with the server"
