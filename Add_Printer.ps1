@@ -24,7 +24,7 @@ Get-Printer -Name "\\print-server\printer-name" | out-null
 
 if($error[0])
 {
-    [System.Windows.MessageBox]::Show("There except an error while adding printer please contact with IT Helpdesk","Error","OK") | out-null
+    [System.Windows.MessageBox]::Show("There except an error while adding printer","Error","OK") | out-null
 }
 else
 {
